@@ -1,0 +1,163 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="css/styles.css" />
+<title>rex</title>
+
+
+<link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/default.min.css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+    <script type="text/javascript" src="build/jquery/jquery.vibrate.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+</head>
+
+<body>
+<div id="content">
+<div id="video">
+
+
+
+
+
+
+   <div id="example-one" style="display:none;" >
+            <div class="example">
+              <pre><code class="javascript">$("#example-one .button").vibrate(); </code></pre>
+              <div class="title">Example One</div>
+              <div class="description">Vibrate for 50ms on all .button in .example.one on click</div>
+              <div class="ui button fluid orange">Try It!</div>
+
+
+
+
+              <script>
+                $("#example-one .button").vibrate(); 
+              </script>
+   </div>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<video id="myVideo" width="320" height="530" controls autoplay>
+  <source src="rex.mp4" type="video/mp4">
+  Your browser does not support HTML5 video.
+</video>
+<!--
+<p>Playback position: <span id="demo"></span></p>
+-->
+
+
+<script>
+// Get the video element with id="myVideo"
+var vid = document.getElementById("myVideo");
+
+// Assign an ontimeupdate event to the video element, and execute a function if the current playback position has changed
+vid.ontimeupdate = function() {myFunction()};
+
+function myFunction() {
+    // Display the current position of the video in a p element with id="demo"
+    //document.getElementById("demo").innerHTML = vid.currentTime;
+
+    if (vid.currentTime>=parseInt('4') && vid.currentTime<=parseInt('5')) {
+      console.log('5 segundos');
+
+      $("#example-one .button").click();
+      //alert('5segundos');
+      
+      //funciona que se ajecute una sola vez con una variable blobal acumulATIVA.
+    }
+
+    if (vid.currentTime>=parseInt('6') && vid.currentTime<=parseInt('7')) {
+      console.log('5 segundos');
+
+      $("#example-one .button").click();
+      //alert('5segundos');
+      
+      //funciona que se ajecute una sola vez con una variable blobal acumulATIVA.
+    }
+
+
+      if (vid.currentTime>=parseInt('7') && vid.currentTime<=parseInt('8')) {
+      console.log('5 segundos');
+
+      $("#example-one .button").click();
+      //alert('5segundos');
+      
+      //funciona que se ajecute una sola vez con una variable blobal acumulATIVA.
+    }
+
+
+
+
+    if (vid.currentTime>=parseInt('16') && vid.currentTime<=parseInt('20')) {
+      console.log('5 segundos');
+
+      $("#example-one .button").click();
+      //alert('5segundos');
+      
+      //funciona que se ajecute una sola vez con una variable blobal acumulATIVA.
+    }
+
+
+
+
+        if (vid.currentTime>=parseInt('23') && vid.currentTime<=parseInt('24')) {
+      console.log('5 segundos');
+
+      $('#myVideo').hide();
+
+      $('#laimagen').show();
+      //alert('5segundos');
+      
+      //funciona que se ajecute una sola vez con una variable blobal acumulATIVA.
+    }
+
+
+}
+</script>
+
+
+
+
+
+
+
+
+
+<!--
+<video id="video" width="320" height="auto" controls autoplay>
+  <source src="rex.mp4" type="video/mp4">
+</video>
+-->
+
+</div>
+
+
+
+
+
+<div id="laimagen" style="display: none;">
+  <img src="img/placa_coach_320.jpg" width="320" height="530" alt=""/>
+</div>
+
+</div>
+</body>
+</html>

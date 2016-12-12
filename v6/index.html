@@ -13,6 +13,24 @@
     <script type="text/javascript" src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
     <script type="text/javascript" src="build/jquery/jquery.vibrate.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
+<style type="text/css">
+  
+  video::-webkit-media-controls {
+  display: none;
+}
+
+/* Could Use thise as well for Individual Controls */
+video::-webkit-media-controls-play-button {}
+
+video::-webkit-media-controls-volume-slider {}
+
+video::-webkit-media-controls-mute-button {}
+
+video::-webkit-media-controls-timeline {}
+
+video::-webkit-media-controls-current-time-display {}
+</style>
+
 
 
 
@@ -27,7 +45,7 @@
 
 
 
-   <div id="example-one" style="display:none;" >
+   <div id="example-one" style="display: none;" >
             <div class="example">
               <pre><code class="javascript">$("#example-one .button").vibrate(); </code></pre>
               <div class="title">Example One</div>
@@ -47,6 +65,26 @@
 
 
 
+        
+        <div class="sixteen wide column" style="display: none;">
+          <div class="example">
+            <pre><code class="javascript">$(".example-long .button").each(function() {
+ $(this).vibrate(parseInt($(this).text(), 10));
+});</code></pre>
+            <div class="title">How Long is Long Enough?</div>
+            <div class="description">If you're not sure how long the haptic feedback should be. You can experiment with various timespans. Try all of these buttons out a mobile device. Anything above 100ms seems to long for me.</div>
+            <div class="ui buttons fluid example-long two"><a class="ui small tiny orange button">10</a><a class="ui small tiny orange button">20</a><a class="ui small tiny orange button">30</a><a class="ui small tiny orange button">40</a><a id="bot50" class="ui small tiny orange button">50</a><a class="ui small tiny orange button">75</a><a class="ui small tiny orange button">100</a><a class="ui small tiny orange button">150</a><a class="ui small tiny orange button">200</a><a id="bot500" class="ui small tiny orange button">500</a><a class="ui small tiny orange button"  >1000</a><a class="ui small tiny orange button" id="bot2000">2000</a>
+               <a class="ui small tiny orange button" id="bot2500">2500</a>
+            <a class="ui small tiny orange button" id="bot3000">3000</a>
+              <script>
+                $(".example-long .button").each(function() {
+                 $(this).vibrate(parseInt($(this).text(), 10));
+                });
+                
+              </script>
+            </div>
+          </div>
+        </div>
 
 
 
@@ -56,7 +94,12 @@
 
 
 
-<video id="myVideo" width="320" height="530" controls autoplay>
+
+
+
+
+
+<video id="myVideo" width="320" height="530" >
   <source src="rex.mp4" type="video/mp4">
   Your browser does not support HTML5 video.
 </video>
@@ -73,20 +116,92 @@ var vid = document.getElementById("myVideo");
 vid.ontimeupdate = function() {myFunction()};
 
 function myFunction() {
+if (vid.ended=='true') {
+
+alert('final video, escocnder play, mostrar play again.');
+}
+  
     // Display the current position of the video in a p element with id="demo"
     //document.getElementById("demo").innerHTML = vid.currentTime;
+    timeCurrent=vid.currentTime.toFixed(2);
+    vibrado1A='4.00';
+    vibrado1B='4.60';
 
-    if (vid.currentTime>=parseInt('4') && vid.currentTime<=parseInt('5')) {
-      console.log('5 segundos');
+    vibrado2A='5.00';
+    vibrado2B='5.60';
 
-      $("#example-one .button").click();
+
+    vibrado3A='16.00';
+    vibrado3B='16.60';
+
+    vibrado4A='17.00';
+    vibrado4B='17.60';
+
+    vibrado5A='6.50';
+    vibrado5B='7.00';
+
+    vibrado6A='7.00';
+    vibrado6B='7.40';
+
+    vibrado7A='7.40';
+    vibrado7B='8.00';
+
+    vibrado8A='8.20';
+    vibrado8B='8.60';
+
+    if (timeCurrent>=vibrado1A && timeCurrent<=vibrado1B) {
+
+
+      $("#bot44").click();
+
+      //$("#example-one .button").attr('disabled','disabled');
+
+      //$("#elemento").one( "evento", function() { alert("Hola, soy una alerta que sólo aparecerá 1 vez."); } );
+
+
       //alert('5segundos');
       
       //funciona que se ajecute una sola vez con una variable blobal acumulATIVA.
     }
 
+
+
+if (timeCurrent>=vibrado2A && timeCurrent<=vibrado2B) {
+
+
+      $("#bot45").click();
+      //alert('5segundos');
+      
+      //funciona que se ajecute una sola vez con una variable blobal acumulATIVA.
+    }
+
+
+
+    if (timeCurrent>=vibrado3A && timeCurrent<=vibrado3B) {
+      $("#bot46").click();
+    }
+
+    if (timeCurrent>=vibrado4A && timeCurrent<=vibrado4B) {
+      $("#bot47").click();
+    }
+
+    if (timeCurrent>=vibrado5A && timeCurrent<=vibrado5B) {
+      $("#bot48").click();
+    }
+    if (timeCurrent>=vibrado6A && timeCurrent<=vibrado6B) {
+      $("#bot49").click();
+    }
+    if (timeCurrent>=vibrado7A && timeCurrent<=vibrado7B) {
+      $("#bot50A").click();
+    }
+    if (timeCurrent>=vibrado8A && timeCurrent<=vibrado8B) {
+      $("#bot51A").click();
+    }
+
+
+/*
     if (vid.currentTime>=parseInt('6') && vid.currentTime<=parseInt('7')) {
-      console.log('5 segundos');
+      //console.log('5 segundos');
 
       $("#example-one .button").click();
       //alert('5segundos');
@@ -118,17 +233,23 @@ function myFunction() {
 
 
 
+    */
 
-        if (vid.currentTime>=parseInt('23') && vid.currentTime<=parseInt('24')) {
-      console.log('5 segundos');
+        if (vid.ended==true) {
+      //console.log('5 segundos');
 
       $('#myVideo').hide();
 
       $('#laimagen').show();
+
+      $('#play-again').show();
+
+      $('#play').hide();
       //alert('5segundos');
       
       //funciona que se ajecute una sola vez con una variable blobal acumulATIVA.
     }
+
 
 
 }
@@ -158,6 +279,148 @@ function myFunction() {
   <img src="img/placa_coach_320.jpg" width="320" height="530" alt=""/>
 </div>
 
+</div><input id="play-again" type="button" value="PLAY AGAIN">
+
+<input id="play" type="button" value="PLAY">
+<div style="display: none;">
+
+
+
+
+<input id="bot44" type="button" value="Click me">
+
+<input id="bot45" type="button" value="Click me">
+
+
+<input id="bot46" type="button" value="Click me">
+
+<input id="bot47" type="button" value="Click me">
+
+
+<input id="bot48" type="button" value="Click me">
+
+
+<input id="bot49" type="button" value="Click me">
+
+<input id="bot50A" type="button" value="Click me">
+<input id="bot51A" type="button" value="Click me">
+
+
+
 </div>
+
+
+<script>
+  
+
+      $("#bot44").one( "click", function() {
+              console.log('--------------------------------------------------VIBRADO BOTON1 --------------------------------------------------');
+        $("#example-one .button").click();
+      });
+
+
+            $("#bot45").one( "click", function() {
+              console.log('--------------------------------------------------VIBRADO BOTON2 --------------------------------------------------');
+        $("#bot500").click();
+
+      });
+
+
+       $("#bot46").one( "click", function() {
+              console.log('--------------------------------------------------VIBRADO BOTON3 --------------------------------------------------');
+        $("#example-one .button").click();
+
+      });
+
+
+       $("#bot47").one( "click", function() {
+              console.log('--------------------------------------------------VIBRADO BOTON4 --------------------------------------------------');
+        $("#bot2500").click();
+
+      });
+
+      $("#bot48").one( "click", function() {
+              console.log('--------------------------------------------------VIBRADO BOTON5 --------------------------------------------------');
+        $("#bot50").click();
+
+      });
+
+      $("#bot49").one( "click", function() {
+              console.log('--------------------------------------------------VIBRADO BOTON6 --------------------------------------------------');
+        $("#bot50").click();
+
+      });
+
+
+      $("#bot50A").one( "click", function() {
+              console.log('--------------------------------------------------VIBRADO BOTON7 --------------------------------------------------');
+        $("#bot50").click();
+
+      });
+
+
+      $("#bot51A").one( "click", function() {
+              console.log('--------------------------------------------------VIBRADO BOTON7 --------------------------------------------------');
+        $("#bot50").click();
+
+      });
+
+
+</script>
+
+
+
+
+
+
+
+<script>
+varmarcus=0;
+
+  $("#myVideo").click(function() {
+console.log('playyyy');
+if (varmarcus==0) {
+  this.play();
+  varmarcus++;
+}else{
+
+  location.reload(); 
+}
+   /*
+  if (this.paused) {
+    
+  } else {
+    this.pause();
+  }
+*/
+
+
+});
+
+    $("#play-again").click(function() {
+
+location.reload(); 
+
+
+});
+
+
+        $("#play").click(function() {
+var mivideo = document.getElementById("myVideo"); 
+mivideo.play(); 
+
+
+});
+
+
+    
+
+
+    $('#play-again').hide();
+
+</script>
+
+
+
 </body>
 </html>
